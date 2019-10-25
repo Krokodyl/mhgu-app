@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Home msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Home from './components/Home.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Home
   }
 }
 </script>
@@ -24,5 +23,23 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.m-div {
+  display: inline-block;
+}
+table.m-table {
+  display: inline-block;
+}
+.m-table, .m-table th, .m-table td {
+    border-width: 1px;
+    border-style: ridge;
+    border-collapse: collapse;
+    width: 280px;
+}
+.opaque {
+  opacity: 1.0;
+}
+.transparent {
+  opacity: 0.1;
 }
 </style>

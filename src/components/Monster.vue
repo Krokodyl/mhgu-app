@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tr>
-        <td rowspan="3">
+        <td rowspan="2">
           <img v-bind:src="getImgUrl('icons/' + monster.icon + '.png')" width="50" />
         </td>
         <td>{{ monster.hp }}</td>
@@ -32,11 +32,23 @@
       <tr>
         <td><!--img v-for="n in [1,2,3,4,5]" :key="n" :src="monster.weaknesses[mode][n]"/></td-->
         <table>
-          <tr v-for="n in [0,1,2,3,4,5,6,7]" :key="n" :value="n">
+          <tr v-for="n in [0,1,2,3,4]" :key="n" :value="n">
             <!--td v-for="w in n" :key="w">
               {{ getWeaknessVal(monster,mode,n) }}
             </td-->
             <td>
+              <Element :element="n" :value="Number(monster.weaknesses[mode][n])"/>
+            </td>
+          </tr>
+        </table>
+        </td>
+		<td><!--img v-for="n in [1,2,3,4,5]" :key="n" :src="monster.weaknesses[mode][n]"/></td-->
+        <table>
+          <tr v-for="n in [5,6,7]" :key="n" :value="n">
+            <!--td v-for="w in n" :key="w">
+              {{ getWeaknessVal(monster,mode,n) }}
+            </td-->
+            <td v-if="Number(monster.weaknesses[mode][n]) > 0">
               <Element :element="n" :value="Number(monster.weaknesses[mode][n])"/>
             </td>
           </tr>
@@ -48,9 +60,6 @@
         </table>
         </td>
         <!--img v-for="n in [0,1,2,3,4]" :key="n" :src="getWeaknessIcon(n)" width="20"/></td-->
-      </tr>
-      <tr>
-        <td>items</td>
       </tr>
     </table>
   </div>
@@ -69,7 +78,7 @@ export default {
       try {
         return require("../assets/" + pic);
       } catch (error) {
-        //console.log('No asset found for '+pic);
+        console.log('No asset found for '+pic);
       }
     },
     getWeaknessIcon(n) {

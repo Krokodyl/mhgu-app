@@ -25,7 +25,8 @@ export default {
   margin-top: 60px;
 }
 .m-div {
-  display: inline-block;
+  display: inline-flex;
+  margin: 5px;
 }
 table.m-table {
   display: inline-block;
@@ -35,6 +36,7 @@ table.m-table {
     border-style: ridge;
     border-collapse: collapse;
     width: 280px;
+	vertical-align: bottom;
 }
 .opaque {
   opacity: 1.0;
